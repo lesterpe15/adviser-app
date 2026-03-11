@@ -886,7 +886,19 @@ function newDataset(){
   document.querySelector('button[onclick="addLearner()"]').textContent = "Add Learner to Table";
   F('status').textContent = 'New dataset ready.';
 }
+	if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register("./service-worker.js")
+        .then(function () {
+          console.log("Service worker registered");
+        })
+        .catch(function (error) {
+          console.log("Service worker registration failed:", error);
+        });
+    });
+  }
 </script>
 </body>
 </html>
+
 
