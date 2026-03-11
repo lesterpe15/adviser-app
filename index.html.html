@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SBFP Manual Data Entry</title>
+  <style>
+    :root{
+      --brand:#0b3d78;
+      --ink:#0f172a;
+      --muted:#475569;
+      --line:#e5e7eb;
+      --bg:#f6f8fb;
+    }
+    html,body{height:100%}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+    header{background:var(--brand);color:#fff;padding:16px}
+    header h1{margin:0;font-size:20px}
+    .help{color:var(--muted);font-size:12px}
+    main{max-width:1200px;margin:0 auto;padding:16px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+    label{display:block;font-size:12px;color:var(--muted);margin-bottom:4px}
+    input,select{padding:10px;border:1px solid var(--line);border-radius:8px;width:100%;font-size:14px;box-sizing:border-box}
+    .col2{grid-column:span 2}.col3{grid-column:span 3}.col4{grid-column:span 4}.col6{grid-column:span 6}.col12{grid-column:span 12}
+    .bar{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;align-items:center}
+    button{background:var(--brand);border:none;color:#fff;padding:10px 14px;border-radius:8px;cursor:pointer}
+    button.secondary{background:#64748b}
+    table{width:100%;border-collapse:collapse;margin-top:16px;background:#fff}
+    th,td{border:1px solid var(--line);padding:6px;font-size:13px}
+    thead th{position:sticky;top:0;background:var(--brand);color:#fff}
+    .right{text-align:right}
+  </style>
+</head>
+<body>
+<header>
+  <h1>📋 SBFP Manual Data Entry</h1>
+  
+</header>
+<main>
+
+<div class="card" style="margin-bottom:16px">
+  <div class="grid">
+    <div class="col3">
+      <label for="dataset_grade">Grade</label>
+      <select id="dataset_grade" required>
+        <option value="">Select</option>
+        <option>Kinder</option>
+        <option>Grade 1</option>
+        <option>Grade 2</option>
+        <option>Grade 3</option>
+        <option>Grade 4</option>
+        <option>Grade 5</option>
+        <option>Grade 6</option>
+        <option>Grade 7</option>
+        <option>Grade 8</option>
+        <option>Grade 9</option>
+        <option>Grade 10</option>
+        <option>Grade 11</option>
+        <option>Grade 12</option>
+        <option>Non-graded</option>
+      </select>
+    </div>
+
+    <div class="col3">
+      <label for="dataset_section">Section</label>
+      <input id="dataset_section" placeholder="Section" required />
+    </div>
+
+<div class="col3">
+  <label for="dataset_school">School</label>
+  <input id="dataset_school" placeholder="School Name" required />
+</div>
+
+    <div class="col3">
+      <label for="dataset_name">Dataset Name</label>
+      <input id="dataset_name" placeholder="Example: Grade 1 - Rizal" />
+    </div>
+
+    <div class="col3">
+      <label>&nbsp;</label>
+      <div class="bar" style="margin-top:0">
+        <button type="button" onclick="saveDataset()">💾 Save Dataset</button>
+        <button type="button" class="secondary" onclick="loadDataset()">📂 Load Dataset</button>
+        <button type="button" class="secondary" onclick="deleteDataset()">🗑️ Delete Dataset</button>
+	<button type="button" class="secondary" onclick="newDataset()">🆕 New Dataset</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="card">
+    <div class="grid">
+
+
+
+<div class="col4">
+  <label for="surname">Surname</label>
+  <input id="surname" placeholder="Surname" required />
+</div>
+
+<div class="col4">
+  <label for="firstname">First Name</label>
+  <input id="firstname" placeholder="First Name" required />
+</div>
+
+<div class="col4">
+  <label for="middlename">Middle Name</label>
+  <input id="middlename" placeholder="Middle Name" />
+</div>
+      <div class="col3">
+        <label for="sex">Sex</label>
+        <select id="sex" required>
+          <option value="">Select</option>
+          <option value="M">M</option>
+          <option value="F">F</option>
+        </select>
+      </div>
+
+
+      <div class="col3">
+        <label for="dob">Date of Birth</label>
+        <input id="dob" type="date" required />
+      </div>
+      <div class="col3">
+        <label for="weigh">Date of Weighing</label>
+        <input id="weigh" type="date" required />
+      </div>
+      <div class="col2">
+        <label for="weight">Weight (Kg)</label>
+        <input id="weight" type="number" step="0.01" class="right" required />
+      </div>
+      <div class="col2">
+        <label for="height">Height (cm)</label>
+        <input id="height" type="number" step="0.1" class="right" required />
+      </div>
+
+
+
+<div class="col3">
+  <label for="pardos">PARDOS</label>
+  <select id="pardos">
+    <option value=""></option>
+    <option value="yes">yes</option>
+    <option value="no">no</option>
+  </select>
+</div>
+
+<div class="col3">
+  <label for="indigent">Indigent</label>
+  <select id="indigent">
+    <option value=""></option>
+    <option value="yes">yes</option>
+    <option value="no">no</option>
+  </select>
+</div>
+
+<div class="col3">
+  <label for="ip">IP</label>
+  <select id="ip">
+    <option value=""></option>
+    <option value="yes">yes</option>
+    <option value="no">no</option>
+  </select>
+</div>
+
+<div class="col3">
+  <label for="pregnant">Pregnant</label>
+  <select id="pregnant">
+    <option value=""></option>
+    <option value="yes">yes</option>
+    <option value="no">no</option>
+  </select>
+</div>
+
+<div class="col3">
+  <label for="with_child">With Child</label>
+  <select id="with_child">
+    <option value=""></option>
+    <option value="yes">yes</option>
+    <option value="no">no</option>
+  </select>
+</div>
+
+<div class="col3">
+  <label for="dewormed">Dewormed</label>
+  <select id="dewormed">
+    <option value=""></option>
+    <option value="yes">yes</option>
+    <option value="no">no</option>
+  </select>
+</div>
+
+<div class="col3">
+  <label for="milk">Milk</label>
+  <select id="milk">
+    <option value=""></option>
+    <option value="yes">yes</option>
+    <option value="no">no</option>
+  </select>
+</div>
+
+<div class="col3">
+  <label for="fourps">4Ps</label>
+  <select id="fourps">
+    <option value=""></option>
+    <option value="yes">yes</option>
+    <option value="no">no</option>
+  </select>
+</div>
+
+<div class="col3">
+  <label for="sbfp">SBFP Prev</label>
+  <select id="sbfp">
+    <option value=""></option>
+    <option value="yes">yes</option>
+    <option value="no">no</option>
+  </select>
+</div>
+
+      <input id="age_m" type="hidden" />
+      <input id="bmi_val" type="hidden" />
+      
+      <input id="bmi" type="hidden" />
+      <input id="hfa" type="hidden" />
+      <input id="bmi_cat" type="hidden" />
+      <input id="hfa_cat" type="hidden" />
+    </div>
+
+    <div class="bar">
+      <button onclick="addLearner()">➕ Add Learner to Table</button>
+      <button class="secondary" onclick="clearForm()">🧹 Clear Form</button>
+      <span class="help" id="status"></span>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <div class="bar">
+      <button onclick="downloadTSV()">⬇️ Download TSV</button>
+      <button onclick="copyAll()">📋 Copy ALL (TSV)</button>
+      <span class="help" id="rowInfo">0 learners</span>
+    </div>
+    <div style="overflow:auto;max-height:60vh;margin-top:8px">
+      <table id="tbl">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Sex</th>
+            <th>Grade/Section</th>
+            <th>DOB</th>
+            <th>Weigh Date</th>
+            <th>Wt (Kg)</th>
+            <th>Ht (cm)</th>
+            <th>PARDOS</th>
+            <th>Indigent</th>
+            <th>IP</th>
+            <th>Pregnant</th>
+            <th>With Child</th>
+            <th>Dewormed</th>
+            <th>Milk</th>
+            <th>4Ps</th>
+            <th>SBFP Prev</th>
+            <th>School</th>
+            <th>✎</th>
+            <th>🗑️</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<script>
+const AUTOSAVE_KEY = 'sbfp_autosave_draft';
+
+const rows = [];
+let editingIndex = -1;
+
+function F(id){ return document.getElementById(id); }
+function buildFullName(){
+  const surname = F('surname').value.trim();
+  const firstname = F('firstname').value.trim();
+  const middlename = F('middlename').value.trim();
+
+  let full = surname;
+  if (firstname) full += (full ? ', ' : '') + firstname;
+  if (middlename) full += ' ' + middlename;
+
+  return full.trim();
+}
+
+function currentGrade(){
+  return F('dataset_grade').value.trim();
+}
+
+function currentSection(){
+  return F('dataset_section').value.trim();
+}
+
+function currentSchool(){
+  return F('dataset_school').value.trim();
+} 
+
+function buildGradeSection(){
+  const grade = currentGrade();
+  const section = currentSection();
+
+  if (grade && section) return grade + ' - ' + section;
+  if (grade) return grade;
+  return '';
+}
+
+function getExclusiveGroup(){
+  return ['pardos', 'indigent', 'ip'];
+}
+
+function updateExclusiveGroup(){
+  const group = getExclusiveGroup();
+  const yesField = group.find(id => F(id).value === 'yes');
+
+  group.forEach(id => {
+    const el = F(id);
+
+    if (!yesField) {
+      el.disabled = false;
+      return;
+    }
+
+    if (id === yesField) {
+      el.disabled = false;
+    } else {
+      el.value = '';
+      el.disabled = true;
+    }
+  });
+}
+
+function validateExclusiveGroup(){
+  const group = getExclusiveGroup();
+  const yesCount = group.filter(id => F(id).value === 'yes').length;
+
+  if (yesCount > 1) {
+    F('status').textContent = 'Only one of PARDOS, Indigent, and IP can be yes.';
+    return false;
+  }
+  return true;
+}
+function toDate(v){
+  if(!v) return null;
+  const d = new Date(v + 'T00:00:00');
+  return isNaN(d.getTime()) ? null : d;
+}
+
+function fmt2(n){ return Number.isFinite(n) ? n.toFixed(2) : ''; }
+
+function ageMonths(dob, weigh){
+  if(!dob || !weigh) return '';
+  let months = (weigh.getFullYear() - dob.getFullYear()) * 12 + (weigh.getMonth() - dob.getMonth());
+  if(weigh.getDate() < dob.getDate()) months -= 1;
+  return months >= 0 ? String(months) : '';
+}
+
+function computeDerived(){
+  const dob = toDate(F('dob').value);
+  const weigh = toDate(F('weigh').value);
+  F('age_m').value = ageMonths(dob, weigh);
+
+  const wt = parseFloat(F('weight').value);
+  const htCm = parseFloat(F('height').value);
+  let bmiVal = '';
+  if (Number.isFinite(wt) && Number.isFinite(htCm) && htCm > 0) {
+    bmiVal = fmt2(wt / Math.pow(htCm / 100, 2));
+  }
+  F('bmi_val').value = bmiVal;
+
+  F('bmi_cat').value = '';
+  F('hfa_cat').value = '';
+  
+  F('bmi').value = '';
+  F('hfa').value = '';
+}
+
+function validateForm(){
+  const required = [
+    'dataset_grade',
+    'dataset_section',
+    'dataset_school',
+    'surname',
+    'firstname',
+    'sex',
+    'dob',
+    'weigh',
+    'weight',
+    'height'
+  ];
+
+  for (const id of required) {
+    const el = F(id);
+    if (!el || !el.value || !String(el.value).trim()) {
+      F('status').textContent = 'Please complete all required fields.';
+      if(el) el.focus();
+      return false;
+    }
+  }
+
+  if (!validateExclusiveGroup()) {
+    return false;
+  }
+
+  return true;
+}
+
+function addLearner(){
+  if(!validateForm()) return;
+  computeDerived();
+
+  const rec = {
+    surname: F('surname').value.trim(),
+    firstname: F('firstname').value.trim(),
+    middlename: F('middlename').value.trim(),
+    name: buildFullName(),
+
+    sex: F('sex').value.trim(),
+
+    grade: currentGrade(),
+    section: currentSection(),
+    grade_section: buildGradeSection(),
+
+    dob: F('dob').value,
+    weigh: F('weigh').value,
+    age_m: F('age_m').value.trim(),
+    weight: F('weight').value.trim(),
+    height: F('height').value.trim(),
+    bmi_val: F('bmi_val').value.trim(),
+    bmi_cat: F('bmi_cat').value.trim(),
+    hfa_cat: F('hfa_cat').value.trim(),
+
+    pardos: F('pardos').value.trim(),
+    indigent: F('indigent').value.trim(),
+    ip: F('ip').value.trim(),
+    pregnant: F('pregnant').value.trim(),
+    with_child: F('with_child').value.trim(),
+    dewormed: F('dewormed').value.trim(),
+    milk: F('milk').value.trim(),
+    fourps: F('fourps').value.trim(),
+    sbfp: F('sbfp').value.trim(),
+
+    school: currentSchool()
+  };
+
+  if (editingIndex >= 0) {
+    rows[editingIndex] = rec;
+    editingIndex = -1;
+    F('status').textContent = 'Learner updated ✓';
+  } else {
+    rows.push(rec);
+    F('status').textContent = 'Added ✓';
+  }
+
+  renderTable();
+  clearLearnerForm();
+autoSaveDraft();
+
+  document.querySelector('button[onclick="addLearner()"]').textContent = "Add Learner to Table";
+}
+
+function clearLearnerForm(){
+  [
+    'surname','firstname','middlename',
+    'sex','dob','weigh','age_m','weight','height',
+    'bmi_val','bmi','hfa','bmi_cat','hfa_cat',
+    'pardos','indigent','ip','pregnant','with_child','dewormed','milk','fourps','sbfp'
+  ].forEach(id => {
+    if (F(id)) {
+      F(id).value = '';
+      F(id).disabled = false;
+    }
+  });
+
+  updateExclusiveGroup();
+  F('status').textContent = '';
+}
+
+function clearForm(){
+  if (F('dataset_grade')) F('dataset_grade').value = '';
+  if (F('dataset_section')) F('dataset_section').value = '';
+  if (F('dataset_school')) F('dataset_school').value = '';
+  if (F('dataset_name')) F('dataset_name').value = '';
+
+  rows.length = 0;
+  editingIndex = -1;
+
+  clearLearnerForm();
+  renderTable();
+  clearAutoSaveDraft();
+
+  document.querySelector('button[onclick="addLearner()"]').textContent = "Add Learner to Table";
+  F('status').textContent = 'Cleared all data.';
+}
+
+function renderTable(){
+  const tb = document.querySelector('#tbl tbody');
+  tb.innerHTML = '';
+
+  rows.forEach((r, i) => {
+
+    const tr = document.createElement('tr');
+
+    const cells = [
+      i + 1,
+      r.name,
+      r.sex,
+      r.grade_section,
+      r.dob,
+      r.weigh,
+      r.weight,
+      r.height,
+      r.pardos,
+      r.indigent,
+      r.ip,
+      r.pregnant,
+      r.with_child,
+      r.dewormed,
+      r.milk,
+      r.fourps,
+      r.sbfp,
+      r.school
+    ];
+
+    cells.forEach(v => {
+      const td = document.createElement('td');
+      td.textContent = v || '';
+      tr.appendChild(td);
+    });
+
+    const tdE = document.createElement('td');
+    const bE = document.createElement('button');
+    bE.textContent = 'Edit';
+    bE.className = 'secondary';
+    bE.onclick = () => editRow(i);
+    tdE.appendChild(bE);
+    tr.appendChild(tdE);
+
+    const tdD = document.createElement('td');
+    const bD = document.createElement('button');
+    bD.textContent = 'Delete';
+    bD.className = 'secondary';
+    bD.onclick = () => delRow(i);
+    tdD.appendChild(bD);
+    tr.appendChild(tdD);
+
+    tb.appendChild(tr);
+  });
+
+  F('rowInfo').textContent =
+    rows.length + ' learner' + (rows.length === 1 ? '' : 's');
+}
+
+function editRow(idx){
+  const r = rows[idx];
+  if(!r) return;
+
+  editingIndex = idx;
+
+  F('dataset_grade').value = r.grade || '';
+  F('dataset_section').value = r.section || '';
+  F('dataset_school').value = r.school || '';
+
+  const map = {
+    surname: r.surname || '',
+    firstname: r.firstname || '',
+    middlename: r.middlename || '',
+    sex: r.sex || '',
+    dob: r.dob || '',
+    weigh: r.weigh || '',
+    weight: r.weight || '',
+    height: r.height || '',
+    pardos: r.pardos || '',
+    indigent: r.indigent || '',
+    ip: r.ip || '',
+    pregnant: r.pregnant || '',
+    with_child: r.with_child || '',
+    dewormed: r.dewormed || '',
+    milk: r.milk || '',
+    fourps: r.fourps || '',
+    sbfp: r.sbfp || ''
+  };
+
+  Object.keys(map).forEach(id => {
+    if (F(id)) {
+      F(id).disabled = false;
+      F(id).value = map[id];
+    }
+  });
+
+  updateExclusiveGroup();
+
+  F('status').textContent = 'Editing learner. Update and click Update Learner.';
+  document.querySelector('button[onclick="addLearner()"]').textContent = "Update Learner";
+autoSaveDraft();
+}
+
+function delRow(idx){
+  rows.splice(idx, 1);
+  renderTable();
+  autoSaveDraft();
+}
+
+function buildTSV(){
+const hdr = [
+  'Name','Sex','Grade','DOB','Weigh Date','Age (months)','Weight','Height',
+  'BMI (kg/m²)','BMI-A Cat','HFA Cat',
+  'PARDOS','Indigent','IP','Pregnant','With Child','Dewormed','Milk','4Ps','SBFP Prev','School'
+];
+  const lines = [hdr.join('\t')];
+  rows.forEach(r => {
+    lines.push([
+      r.name, r.sex, r.grade_section, r.dob, r.weigh, r.age_m, r.weight, r.height,
+      r.bmi_val, r.bmi_cat, r.hfa_cat,
+      r.pardos, r.indigent, r.ip, r.pregnant, r.with_child,
+      r.dewormed, r.milk, r.fourps, r.sbfp, r.school
+    ].join('\t'));
+  });
+  return lines.join('\n');
+}
+
+function safeFileName(text){
+  return (text || 'sbfp_manual_input')
+    .replace(/[\\/:*?"<>|]/g, '_')
+    .replace(/\s+/g, '_')
+    .trim();
+}
+
+function downloadTSV(){
+  const tsv = buildTSV();
+  const blob = new Blob([tsv], { type: 'text/tab-separated-values' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = safeFileName(buildGradeSection() || 'sbfp_manual_input') + '.tsv';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(a.href);
+}
+
+async function copyAll(){
+  try {
+    await navigator.clipboard.writeText(buildTSV());
+    F('status').textContent = 'TSV copied ✓';
+  } catch (e) {
+    F('status').textContent = 'Copy failed.';
+  }
+}
+document.addEventListener('DOMContentLoaded', function(){
+  ['pardos', 'indigent', 'ip'].forEach(id => {
+    F(id).addEventListener('change', function(){
+      updateExclusiveGroup();
+      autoSaveDraft();
+    });
+  });
+
+  updateExclusiveGroup();
+  setupAutoSaveListeners();
+  restoreDraft();
+});
+
+const DB_NAME = 'sbfp_encoder_db';
+const DB_VERSION = 1;
+const STORE_NAME = 'datasets';
+
+function openDB(){
+  return new Promise((resolve, reject) => {
+    const req = indexedDB.open(DB_NAME, DB_VERSION);
+
+    req.onupgradeneeded = function(event){
+      const db = event.target.result;
+      if (!db.objectStoreNames.contains(STORE_NAME)) {
+        db.createObjectStore(STORE_NAME, { keyPath: 'name' });
+      }
+    };
+
+    req.onsuccess = function(){
+      resolve(req.result);
+    };
+
+    req.onerror = function(){
+      reject(req.error);
+    };
+  });
+}
+
+async function saveDataset(){
+  const name =
+    F('dataset_name').value.trim() ||
+    buildGradeSection() ||
+    'Untitled Dataset';
+
+  if (!currentGrade() || !currentSection()) {
+    F('status').textContent = 'Set Grade and Section first.';
+    return;
+  }
+
+const payload = {
+  name,
+  savedAt: new Date().toISOString(),
+  grade: currentGrade(),
+  section: currentSection(),
+  school: currentSchool(),
+  rows: rows
+};
+
+  const db = await openDB();
+
+  await new Promise((resolve, reject) => {
+    const tx = db.transaction(STORE_NAME, 'readwrite');
+    const store = tx.objectStore(STORE_NAME);
+    const req = store.put(payload);
+
+    req.onsuccess = () => resolve();
+    req.onerror = () => reject(req.error);
+  });
+
+  F('dataset_name').value = name;
+  F('status').textContent = 'Dataset saved ✓';
+}
+
+async function loadDataset(){
+  const name =
+    F('dataset_name').value.trim() ||
+    prompt('Enter dataset name to load:');
+
+  if (!name) return;
+
+  const db = await openDB();
+
+  const data = await new Promise((resolve, reject) => {
+    const tx = db.transaction(STORE_NAME, 'readonly');
+    const store = tx.objectStore(STORE_NAME);
+    const req = store.get(name);
+
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+
+  if (!data) {
+    F('status').textContent = 'Dataset not found.';
+    return;
+  }
+
+  rows.length = 0;
+  data.rows.forEach(r => rows.push(r));
+
+  F('dataset_name').value = data.name || '';
+  F('dataset_grade').value = data.grade || '';
+  F('dataset_section').value = data.section || '';
+  F('dataset_school').value = data.school || '';
+
+  renderTable();
+  clearLearnerForm();
+  F('status').textContent = 'Dataset loaded ✓';
+}
+
+async function deleteDataset(){
+  const name =
+    F('dataset_name').value.trim() ||
+    prompt('Enter dataset name to delete:');
+
+  if (!name) return;
+
+  const db = await openDB();
+
+  await new Promise((resolve, reject) => {
+    const tx = db.transaction(STORE_NAME, 'readwrite');
+    const store = tx.objectStore(STORE_NAME);
+    const req = store.delete(name);
+
+    req.onsuccess = () => resolve();
+    req.onerror = () => reject(req.error);
+  });
+
+  F('status').textContent = 'Dataset deleted ✓';
+}
+
+function getDraftData(){
+  return {
+    dataset_grade: F('dataset_grade') ? F('dataset_grade').value : '',
+    dataset_section: F('dataset_section') ? F('dataset_section').value : '',
+    dataset_school: F('dataset_school') ? F('dataset_school').value : '',
+    dataset_name: F('dataset_name') ? F('dataset_name').value : '',
+    rows: rows,
+    editingIndex: editingIndex
+  };
+}
+
+function autoSaveDraft(){
+  try {
+    localStorage.setItem(AUTOSAVE_KEY, JSON.stringify(getDraftData()));
+  } catch (e) {
+    console.error('Auto-save failed:', e);
+  }
+}
+
+function restoreDraft(){
+  try {
+    const raw = localStorage.getItem(AUTOSAVE_KEY);
+    if (!raw) return;
+
+    const data = JSON.parse(raw);
+
+    if (F('dataset_grade')) F('dataset_grade').value = data.dataset_grade || '';
+    if (F('dataset_section')) F('dataset_section').value = data.dataset_section || '';
+    if (F('dataset_school')) F('dataset_school').value = data.dataset_school || '';
+    if (F('dataset_name')) F('dataset_name').value = data.dataset_name || '';
+
+    rows.length = 0;
+    (data.rows || []).forEach(r => rows.push(r));
+
+    editingIndex = Number.isInteger(data.editingIndex) ? data.editingIndex : -1;
+
+    renderTable();
+    updateExclusiveGroup();
+
+    F('status').textContent = 'Recovered unsaved data ✓';
+  } catch (e) {
+    console.error('Restore failed:', e);
+  }
+}
+
+function clearAutoSaveDraft(){
+  localStorage.removeItem(AUTOSAVE_KEY);
+}
+function setupAutoSaveListeners(){
+  [
+    'dataset_grade',
+    'dataset_section',
+    'dataset_school',
+    'dataset_name',
+    'surname',
+    'firstname',
+    'middlename',
+    'sex',
+    'dob',
+    'weigh',
+    'weight',
+    'height',
+    'pardos',
+    'indigent',
+    'ip',
+    'pregnant',
+    'with_child',
+    'dewormed',
+    'milk',
+    'fourps',
+    'sbfp'
+  ].forEach(id => {
+    const el = F(id);
+    if (el) {
+      el.addEventListener('input', autoSaveDraft);
+      el.addEventListener('change', autoSaveDraft);
+    }
+  });
+}
+function newDataset(){
+  const hasRows = rows.length > 0;
+  const ok = !hasRows || confirm('Create a new dataset with a new empty table? Unsaved current table data will be cleared.');
+
+  if (!ok) return;
+
+  rows.length = 0;
+  editingIndex = -1;
+
+  if (F('dataset_grade')) F('dataset_grade').value = '';
+  if (F('dataset_section')) F('dataset_section').value = '';
+  if (F('dataset_school')) F('dataset_school').value = '';
+  if (F('dataset_name')) F('dataset_name').value = '';
+
+  clearLearnerForm();
+  renderTable();
+  clearAutoSaveDraft();
+
+  document.querySelector('button[onclick="addLearner()"]').textContent = "Add Learner to Table";
+  F('status').textContent = 'New dataset ready.';
+}
+</script>
+</body>
+</html>
